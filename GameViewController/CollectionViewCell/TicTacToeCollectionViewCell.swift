@@ -1,9 +1,3 @@
-//
-//  TicTacToeCollectionViewCell.swift
-//  TicTacToeApp
-//
-//  Created by Яна Угай on 08.05.2023.
-//
 
 import UIKit
 

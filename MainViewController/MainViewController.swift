@@ -3,6 +3,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //MARK: - UI
+    
     private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +21,7 @@ class MainViewController: UIViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .white
-        textField.attributedPlaceholder = NSAttributedString(string: viewModel.placeholder)
+        textField.attributedPlaceholder = NSAttributedString(string: Constants.placeholder)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 1.0
@@ -31,7 +33,7 @@ class MainViewController: UIViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .white
-        textField.attributedPlaceholder = NSAttributedString(string: viewModel.placeholderForSecondPlayer)
+        textField.attributedPlaceholder = NSAttributedString(string: Constants.placeholderForSecondPlayer)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 1.0
@@ -39,8 +41,11 @@ class MainViewController: UIViewController {
         return textField
     }()
     
+    //MARK: Property
     
     private lazy var viewModel = MainViewModel()
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +60,8 @@ class MainViewController: UIViewController {
         nameSecondPlayerTextField.layer.cornerRadius = 20
     }
     
+    //MARK: - setup UI
+    
     private func setup() {
         addSubview()
         setConstraint()
@@ -64,8 +71,9 @@ class MainViewController: UIViewController {
         view.addSubview(button)
         view.addSubview(namePlayerTextField)
         view.addSubview(nameSecondPlayerTextField)
-        
     }
+    
+    //MARK: - Constraints
     
     private func setConstraint() {
         NSLayoutConstraint.activate([
@@ -88,25 +96,27 @@ class MainViewController: UIViewController {
         ])
     }
     
+    //MARK: - Navigation
+    
     private func navigateToGame() {
         let vc = GameViewController()
         vc.configureLabel(firstPlayer: namePlayerTextField.text ?? "", secondPlayer: nameSecondPlayerTextField.text ?? "")
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
-     
+    
     @objc private func push() {
         navigateToGame()
     }
+    
+    //MARK: - setup Textfield
     
     @objc private func textFieldDidChange() {
         guard let textOne = namePlayerTextField.text else { return }
         guard let textTwo = nameSecondPlayerTextField.text else { return }
         viewModel.updateName(textOne, textTwo)
-           button.alpha = CGFloat(viewModel.buttonAlpha)
-           button.isEnabled = viewModel.isButtonEnabled
-       }
-    
-    
+        button.alpha = CGFloat(viewModel.buttonAlpha)
+        button.isEnabled = viewModel.isButtonEnabled
+    }
 }
 

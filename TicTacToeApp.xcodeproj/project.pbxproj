@@ -16,7 +16,6 @@
 		3138D2D22A07C0FB001D8403 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138D2D12A07C0FB001D8403 /* GameViewModel.swift */; };
 		3138D2D52A07C121001D8403 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138D2D42A07C121001D8403 /* GameViewController.swift */; };
 		3138D2D82A07C162001D8403 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138D2D72A07C162001D8403 /* MainViewController.swift */; };
-		3138D2DC2A07C18A001D8403 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138D2DB2A07C18A001D8403 /* MainModel.swift */; };
 		3138D2E02A07C1AD001D8403 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3138D2DF2A07C1AD001D8403 /* MainViewModel.swift */; };
 		31D3E37B2A08FB0C003E51B2 /* TicTacToeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D3E37A2A08FB0C003E51B2 /* TicTacToeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +45,6 @@
 		3138D2D12A07C0FB001D8403 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		3138D2D42A07C121001D8403 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3138D2D72A07C162001D8403 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		3138D2DB2A07C18A001D8403 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		3138D2DF2A07C1AD001D8403 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		31D3E37A2A08FB0C003E51B2 /* TicTacToeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +67,6 @@
 				3138D2C72A07C06C001D8403 /* MainViewController */,
 				3138D2AE2A07BF5F001D8403 /* TicTacToeApp */,
 				3138D2AD2A07BF5F001D8403 /* Products */,
-				3138D2F62A080B5C001D8403 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				3138D2D72A07C162001D8403 /* MainViewController.swift */,
-				3138D2CB2A07C0B1001D8403 /* MainModel */,
 				3138D2CC2A07C0BE001D8403 /* MainViewModel */,
 			);
 			path = MainViewController;
@@ -131,27 +127,12 @@
 			path = GameModel;
 			sourceTree = "<group>";
 		};
-		3138D2CB2A07C0B1001D8403 /* MainModel */ = {
-			isa = PBXGroup;
-			children = (
-				3138D2DB2A07C18A001D8403 /* MainModel.swift */,
-			);
-			path = MainModel;
-			sourceTree = "<group>";
-		};
 		3138D2CC2A07C0BE001D8403 /* MainViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				3138D2DF2A07C1AD001D8403 /* MainViewModel.swift */,
 			);
 			path = MainViewModel;
-			sourceTree = "<group>";
-		};
-		3138D2F62A080B5C001D8403 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		31D3E3792A08FAF7003E51B2 /* CollectionViewCell */ = {
@@ -242,7 +223,6 @@
 				3138D2B02A07BF5F001D8403 /* AppDelegate.swift in Sources */,
 				3138D2E02A07C1AD001D8403 /* MainViewModel.swift in Sources */,
 				31D3E37B2A08FB0C003E51B2 /* TicTacToeCollectionViewCell.swift in Sources */,
-				3138D2DC2A07C18A001D8403 /* MainModel.swift in Sources */,
 				3138D2BA2A07BF5F001D8403 /* TicTacToeApp.xcdatamodeld in Sources */,
 				3138D2B22A07BF5F001D8403 /* SceneDelegate.swift in Sources */,
 				3138D2D82A07C162001D8403 /* MainViewController.swift in Sources */,

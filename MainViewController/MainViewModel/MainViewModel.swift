@@ -2,9 +2,7 @@
 import Foundation
 
 class MainViewModel {
-    
-    private(set) var placeholder = "Enter First player name"
-    private(set) var placeholderForSecondPlayer = "Enter Second player name"
+
     private(set) var buttonAlpha = 0.4
     private(set) var isButtonEnabled = false
     

@@ -3,11 +3,13 @@ import UIKit
 
 class GameViewController: UIViewController, ViewModelDelegate {
     
+    //MARK: - UI
+    
     private lazy var buttonClickDismiss: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .gray
-        button.setImage(UIImage(systemName: SystemName.dismiss), for: .normal)
+        button.setImage(UIImage(systemName: Constants.dismiss), for: .normal)
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         return button
     }()
@@ -53,7 +55,11 @@ class GameViewController: UIViewController, ViewModelDelegate {
         return collection
     }()
     
+    //MARK: - Property
+    
     private lazy var viewModel = GameViewModel()
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +67,16 @@ class GameViewController: UIViewController, ViewModelDelegate {
         setup()
     }
     
+    //MARK: - Setup UI
+    
     private func setup() {
         addSubview()
         setConstraint()
         viewModel.delegate = self
+    }
+    
+    @objc private func close() {
+        dismiss(animated: true, completion: nil)
     }
     
     private func addSubview() {
@@ -73,6 +85,8 @@ class GameViewController: UIViewController, ViewModelDelegate {
         view.addSubview(labelForSecondPlayer)
         view.addSubview(collectionView)
     }
+    
+    //MARK: - Constraints
     
     private func setConstraint() {
         NSLayoutConstraint.activate([
@@ -105,11 +119,9 @@ class GameViewController: UIViewController, ViewModelDelegate {
         viewModel.namePlayer = firstPlayer
         viewModel.nameSecondPlayer = secondPlayer
     }
-    
-    @objc private func close() {
-        dismiss(animated: true, completion: nil)
-    }
 }
+
+    //MARK: - UICollectionViewDataSource
 
 extension GameViewController: UICollectionViewDataSource {
     
@@ -128,6 +140,8 @@ extension GameViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+    //MARK: - UICollectionViewDelegate
 
 extension GameViewController: UICollectionViewDelegate {
     
@@ -152,14 +166,14 @@ extension GameViewController: UICollectionViewDelegate {
             if viewModel.round {
                 labelForPlayer.backgroundColor = #colorLiteral(red: 0.09022704512, green: 0.6043468118, blue: 0.361207366, alpha: 1)
                 labelForSecondPlayer.backgroundColor = .white
-                let imageView = UIImageView(image: UIImage(named: SystemName.O))
+                let imageView = UIImageView(image: UIImage(named: Constants.O))
                 imageView.frame = cell.bounds
                 cell.backgroundView = imageView
                 viewModel.updateRound(round: true)
             } else {
                 labelForSecondPlayer.backgroundColor = #colorLiteral(red: 0.09022704512, green: 0.6043468118, blue: 0.361207366, alpha: 1)
                 labelForPlayer.backgroundColor = .white
-                let imageView = UIImageView(image: UIImage(named: SystemName.X))
+                let imageView = UIImageView(image: UIImage(named: Constants.X))
                 imageView.frame = cell.bounds
                 cell.backgroundView = imageView
                 viewModel.updateRound(round: false)
@@ -168,6 +182,9 @@ extension GameViewController: UICollectionViewDelegate {
         }
     }
 }
+
+//MARK: - Setup animation
+
 extension GameViewController {
     private func showViewWithWinner(text: String) {
         let labelView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 70))
@@ -190,11 +207,11 @@ extension GameViewController {
         
         // задаем анимацию для UIView
         UIView.animate(withDuration: duration, animations: {
-            labelView.center.y -= 50 // сдвигаем UIView вниз
+            labelView.center.y -= 50 // сдвигаем UIView вверх
         }) { _ in
-            // по завершении анимации добавляем задержку на 3 секунды и запускаем обратную анимацию
-            UIView.animate(withDuration: duration, delay: 0, animations: {
-                labelView.center.y += 50 // сдвигаем UIView вверх
+        // запускаем обратную анимацию
+            UIView.animate(withDuration: duration, animations: {
+                labelView.center.y += 50 // сдвигаем UIView вниз
             }) { _ in
                 labelView.removeFromSuperview() // удаляем UIView из view
             }
