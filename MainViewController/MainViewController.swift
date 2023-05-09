@@ -109,7 +109,7 @@ class MainViewController: UIViewController {
         navigateToGame()
     }
     
-    //MARK: - setup Textfield
+    //MARK: - Check textfield isEmpty, setup buttonIsEnable
     
     @objc private func textFieldDidChange() {
         guard let textOne = namePlayerTextField.text else { return }

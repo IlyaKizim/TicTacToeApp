@@ -183,7 +183,7 @@ extension GameViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - Setup animation
+    //MARK: - Setup animation
 
 extension GameViewController {
     private func showViewWithWinner(text: String) {
