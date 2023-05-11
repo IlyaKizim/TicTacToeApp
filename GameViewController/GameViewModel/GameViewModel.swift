@@ -46,8 +46,10 @@ class GameViewModel {
         let allElementsExist = drawCheck.allSatisfy { drawResult.contains($0) }
         if allElementsExist {
             delegate?.updateLabel(player: "Draw")
-            resetGame()
-            delegate?.didUpdateData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.resetGame()
+                self.delegate?.didUpdateData()
+            }
             return
         }
     }
@@ -72,14 +74,18 @@ class GameViewModel {
             if combo.allSatisfy({ winX.contains($0) }) {
                 scoreForLabelPlayer += 1
                 delegate?.updateLabel(player: "Win \(namePlayer)")
-                resetGame()
-                delegate?.didUpdateData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.resetGame()
+                    self.delegate?.didUpdateData()
+                }
                 return
             } else if combo.allSatisfy({ winO.contains($0) }) {
                 scoreForLabelSecondPlayer += 1
                 delegate?.updateLabel(player: "Win \(nameSecondPlayer)")
-                resetGame()
-                delegate?.didUpdateData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.resetGame()
+                    self.delegate?.didUpdateData()
+                }
                 return
             }
         }
